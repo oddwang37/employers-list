@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const EmployersItem = ({ salary, name, favourite }) => {
+const EmployersItem = ({ salary, name}) => {
+
+  const [isFavourite, setFavourite] = useState(false);
+
   return (
-    <Root favourite={favourite}>
+    <Root favourite={isFavourite}>
       <Name>{name}</Name>
       <Info>
-        <Salary type="text" defaultValue={salary}/>
+        <Salary
+        type="text" 
+        defaultValue={salary}
+        favourite={isFavourite}
+        />
         <Actions>
           <Delete />
-          <Favourite />
+          <Favourite onClick={() => setFavourite((favourite) => !favourite )} />
         </Actions>
       </Info>
     </Root>
@@ -43,7 +50,7 @@ const Salary = styled.input`
   font-weight: 500;
   border: none;
   background-color: rgb(81, 141, 168);
-  color: #fff;
+  color: ${p => p.favourite? `gold` : `#fff`};
 `;
 
 const Actions = styled.div`
@@ -66,4 +73,5 @@ const Favourite = styled.div`
   height: 40px;
   background-color: gold;
   border-radius: 50%;
+  cursor: pointer;
 `;

@@ -10,10 +10,9 @@ const EmployersList = ({employers}) => {
             {employers.map((employer, index) => {
                 return <EmployersItem 
                         name={employer.name} 
-                        salary={employer.salary} 
-                        favourite={employer.favourite}
+                        salary={employer.salary}  
                         key={index + ''}/>
-            })
+            })    
             }
         </Root>
     )
