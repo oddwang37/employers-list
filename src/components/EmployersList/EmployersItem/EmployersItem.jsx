@@ -1,22 +1,17 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-const EmployersItem = ({ salary, name}) => {
-
+const EmployersItem = ({ salary, name, onDelete }) => {
   const [isFavourite, setFavourite] = useState(false);
 
   return (
     <Root favourite={isFavourite}>
       <Name>{name}</Name>
       <Info>
-        <Salary
-        type="text" 
-        defaultValue={salary}
-        favourite={isFavourite}
-        />
+        <Salary type="text" defaultValue={salary + '$'} favourite={isFavourite} />
         <Actions>
-          <Delete />
-          <Favourite onClick={() => setFavourite((favourite) => !favourite )} />
+          <Delete onClick={onDelete} />
+          <Favourite onClick={() => setFavourite((favourite) => !favourite)} />
         </Actions>
       </Info>
     </Root>
@@ -35,7 +30,7 @@ const Root = styled.li`
   align-items: center;
   border: 2px solid #ffffff;
   border-radius: 5px;
-  color: ${p => p.favourite? `gold` : `#fff`};
+  color: ${(p) => (p.favourite ? `gold` : `#fff`)};
 `;
 
 const Name = styled.div`
@@ -44,13 +39,15 @@ const Name = styled.div`
 const Info = styled.div`
   display: flex;
   justify-content: space-between;
-  width: 30%;
+  width: 45%;
 `;
 const Salary = styled.input`
   font-weight: 500;
   border: none;
   background-color: rgb(81, 141, 168);
-  color: ${p => p.favourite? `gold` : `#fff`};
+  color: ${(p) => (p.favourite ? `gold` : `#fff`)};
+  font-size: 20px;
+  max-width: 100px;
 `;
 
 const Actions = styled.div`

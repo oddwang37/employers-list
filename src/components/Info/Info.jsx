@@ -3,8 +3,6 @@ import styled from 'styled-components';
 
 const Info = () => {
 
-
-
   return (
     <Root>
       <Title>Учёт сотрудников в компании N</Title>
@@ -17,7 +15,7 @@ const Info = () => {
 export default Info;
 
 const Root = styled.div`
-  margin-top: 50px;
+  margin-top: 35px;
   min-height: 150px;
   width: 100%;
   background-color: rgb(81, 141, 168);
