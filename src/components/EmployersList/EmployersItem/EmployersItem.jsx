@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 
-const EmployersItem = ({ salary, name, onDelete }) => {
-  const [isFavourite, setFavourite] = useState(false);
+const EmployersItem = ({ salary, name, onDelete, isFavourite, onFavourite }) => {
 
   return (
     <Root favourite={isFavourite}>
@@ -11,7 +10,7 @@ const EmployersItem = ({ salary, name, onDelete }) => {
         <Salary type="text" defaultValue={salary + '$'} favourite={isFavourite} />
         <Actions>
           <Delete onClick={onDelete} />
-          <Favourite onClick={() => setFavourite((favourite) => !favourite)} />
+          <Favourite onClick={onFavourite} />
         </Actions>
       </Info>
     </Root>

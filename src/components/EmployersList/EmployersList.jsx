@@ -3,16 +3,18 @@ import styled from 'styled-components';
 import EmployersItem from './EmployersItem/EmployersItem';
 
 
-const EmployersList = ({employers, onDelete}) => {
+const EmployersList = ({employers, onDelete, onFavourite}) => {
 
     return (
         <Root>
             {employers.map((employer) => {
                 return <EmployersItem 
                         name={employer.name} 
-                        salary={employer.salary}  
+                        salary={employer.salary}
+                        isFavourite={employer.favourite}
                         key={employer.id + ''}
                         onDelete={() => onDelete(employer.id)}
+                        onFavourite={() => onFavourite(employer.id)}
                         />
             })    
             }
