@@ -6,18 +6,16 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   * {
     font-family: 'Segoe UI';
-
     margin: 0;
     padding: 0;
     box-sizing: border-box;
   }
-`
+`;
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
     <GlobalStyles />
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
-

@@ -19,12 +19,13 @@ const AddForm = ({ addEmployer }) => {
       <Form>
         <Input type="text" placeholder="Как его зовут?" onChange={handleNameChange} value={name} />
         <Input type="number" placeholder="З/П в $" onChange={handleSalaryChange} value={salary} />
-        <Button onClick={(e) => {
-        e.preventDefault();
-        addEmployer(name, salary);
-        setName('');
-        setSalary('');
-        }}>
+        <Button
+          onClick={(e) => {
+            e.preventDefault();
+            addEmployer(name, salary);
+            setName('');
+            setSalary('');
+          }}>
           Добавить
         </Button>
       </Form>

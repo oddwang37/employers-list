@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 
 const EmployersItem = ({ salary, name, onDelete, isFavourite, onFavourite }) => {
-
   return (
     <Root favourite={isFavourite}>
       <Name>{name}</Name>
