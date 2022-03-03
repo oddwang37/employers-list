@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Info = () => {
+const Info = ({length, award}) => {
   return (
     <Root>
       <Title>Учёт сотрудников в компании N</Title>
-      <Text>Общее число сотрудников: 2</Text>
-      <Text>Премию получат: 2</Text>
+      <Text>Общее число сотрудников: {length}</Text>
+      <Text>Премию получат: {award}</Text>
     </Root>
   );
 };

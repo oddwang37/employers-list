@@ -5,9 +5,9 @@ const Filter = () => {
 
   return (
     <Root>
-      <Item>It's</Item>
-      <Item>Some</Item>
-      <Item>Filter</Item>
+      <Item>All employees</Item>
+      <Item>On rise</Item>
+      <Item>Salary &gt; 1000$</Item>
     </Root>
   );
 };
@@ -15,8 +15,8 @@ const Filter = () => {
 export default Filter;
 
 const Root = styled.div`
-  margin-top: 10px;
-  width: 250px;
+  margin-top: 15px;
+  width: 320px;
   display: flex;
   justify-content: space-between;
 `;
@@ -24,11 +24,14 @@ const Root = styled.div`
 const Item = styled.div`
   min-width: 80px;
   height: 30px;
-  padding: 3px;
+  padding: 5px;
   color: #fff;
   background-color: #f17474;
   font-weight: 500;
   border-radius: 5px;
   text-align: center;
   cursor: pointer;
+  &:hover {
+    background-color: #e66363;
+  }
 `;

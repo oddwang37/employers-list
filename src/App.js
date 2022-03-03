@@ -12,6 +12,8 @@ const App = () => {
     { name: 'Rick Sanzchez', salary: 10000, favourite: false, id: 2 },
   ]);
 
+  const [term, setTerm] = useState('V');
+
   const onDelete = (id) => {
     const newArr = data.filter((elem) => elem.id !== id);
     setData(newArr);
@@ -39,11 +41,28 @@ const App = () => {
     setData(newArr);
   };
 
+  const findDataPremLength = (data) => {
+    return data.filter((item) => item.favourite).length;
+  };
+
+  const searchItems = (items, term) => {
+    term = term.toLowerCase();
+    return items.filter(item => {
+      return item.name.toLowerCase().indexOf(term) > -1
+    })
+  }
+
+  const handleSearchInput = (e) => {
+    setTerm(e.target.value)
+  }
+
+  const visibleData = searchItems(data, term);
+
   return (
     <Root>
-      <Info />
-      <SearchPanel />
-      <EmployersList employers={data} onDelete={onDelete} onFavourite={onFavourite} />
+      <Info length={data.length} award={findDataPremLength(data)} />
+      <SearchPanel handleSearchInput={handleSearchInput} term={term}/>
+      <EmployersList employers={visibleData} onDelete={onDelete} onFavourite={onFavourite} />
       <AddForm addEmployer={addEmployer} />
     </Root>
   );

@@ -2,10 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import Filter from './Filter/Filter';
 
-const SearchPanel = () => {
+const SearchPanel = ({handleSearchInput, term}) => {
+
+
   return (
     <Root>
-      <Input placeholder="Enter name of employee..." type="text" />
+      <Input
+        placeholder="Enter name of employee..."
+        type="text"
+        onChange={handleSearchInput}
+        value={term}
+      />
       <Filter />
     </Root>
   );
